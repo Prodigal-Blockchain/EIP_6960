@@ -46,7 +46,7 @@ interface IDLTUpgradeable {
     /**
      * @dev Emitted when `spender` enables or disables (`approved`) `operator` to manage all of its assets.
      */
-    event ApprovalForAll(
+    event DLTApprovalForAll(
         address indexed spender,
         address indexed operator,
         bool approved

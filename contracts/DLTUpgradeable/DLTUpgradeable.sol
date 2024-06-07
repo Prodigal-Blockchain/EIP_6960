@@ -411,7 +411,7 @@ contract DLTUpgradeable is Initializable, Context, IDLTUpgradeable {
     ) internal virtual {
         require(owner != operator, "DLT: approve to caller");
         _operatorApprovals[owner][operator] = approved;
-        emit ApprovalForAll(owner, operator, approved);
+        emit DLTApprovalForAll(owner, operator, approved);
     }
 
     /**

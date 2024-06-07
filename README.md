@@ -1,132 +1,67 @@
-# DLT (Dual Layer Token) Standard 🛠️
+# Movie Fund Distributor-ERC6960
 
-Welcome to the Dual-Layer-Token (DLT) Standard, proposed under EIP-6960! 🎉
+The Movie Fund Distributor is a Solidity smart contract designed to manage funds and operations within a movie production house using ERC6960-Dual Layer Token.It provides functionalities for adding movies, departments, and employees, as well as distributing funds and paying employee salaries. The ERC6960 Dual Layer Token combines the functionalities of ERC-20, ERC-721, and ERC-1155, adding a classification layer that uses mainId as the main asset type identifier and subId as the unique attributes or variations of the main asset.
 
-DLT is a versatile and efficient token standard for managing diverse digital assets in a clear and organized manner. 📚💼🏦
+## Key Features
 
-## Table of Contents 📑
+- **Adding Movies**: Producers can add new movies to the production house, specifying the movie name and associated image.
+- **Adding Departments**: Producers can add departments to each movie, defining the department name and image.
+- **Adding Employees**: Department managers can add employees to their departments, specifying the employee's address and salary.
+- **Distributing Funds**: Producers can distribute funds to movies and departments within the production house.
+- **Paying Salaries**: Department managers can pay salaries to employees in their departments using allocated funds.
 
-- [About DLT](#about-dlt)
-- [DLT vs. Existing Standards](#dlt-vs-existing-standards)
-- [Interface Overview](#interface-overview)
-- [Key Functions](#key-functions)
-- [DLT Examples](#dlt-examples)
-- [Conclusion](#conclusion)
+## Usage
 
-## About DLT 🚀
+1. **Deploy the Contract**: Deploy the MovieFundDistributor contract on the Ethereum blockchain.
+2. **Add Movies**: Producers can add movies to the production house using the addMovie function, providing the movie name and image.
+3. **Add Departments**: For each movie, producers can add departments using the addDepartment function, specifying the department name and image.
+4. **Add Employees**: Department managers can add employees to their departments using the addEmployee function, providing the employee's address and salary.
+5. **Distribute Funds**: Producers can distribute funds to movies and departments using the appropriate functions.
+6. **Pay Salaries**: Department managers can pay employee salaries using allocated funds by calling the addEmployeesalary function.
 
-DLT, or Dual Layer Token, is a unique token standard that combines the best features of existing standards while adding a novel layered structure, making it ideal for managing diverse asset types and their attributes.
+## Installation
 
-The DLT structure comprises:
+To install and use the SwifyDex core contracts in your project, follow these steps:
 
-- `mainId`: Represents the primary asset type.
-- `subId`: Represents the unique attributes or variations of the asset.
+1. Clone the repository:
 
-## DLT vs. Existing Standards 🥊
+   ```sh
+   git clone https://github.com/Prodigal-Blockchain/EIP_6960.git
+   cd EIP_6960
+   ```
 
-While existing token standards (ERC20, ERC721, ERC1155) have their merits, they each have limitations when dealing with diverse asset types and attributes within the same contract.
+2. Install the dependencies:
 
-DLT overcomes these limitations by providing a more flexible, efficient, and scalable solution for managing various assets. 🏗️
+   ```sh
+   npm install
+   ```
 
-Benefits of DLT include:
+3. Compile the contracts using Hardhat:
+   ```sh
+   npx hardhat compile
+   ```
 
-- Simplified Asset Management 📦
-- Optimized Gas Costs ⛽
-- Inherent Scalability 📈
-- Enhanced Interoperability 🧩
-- Fostering Innovation 💡
+## Environment Setup
 
-## Interface Overview 📖
+1. Create a `.env` file in the root directory and update it with your environment variables. For example:
 
-The DLT Interface consists of several key events and functions that facilitate the handling and management of tokens.
+   ```ini
+   ETHERSCAN_API=your_infura_api_key
+   PRIVATE_KEY=your_private_key
+   ```
 
-Key events include:
+## Deployment
 
-- `Transfer`: Emitted when a token is transferred.
-- `TransferBatch`: Emitted for batch transfers.
-- `Approval`: Emitted when an owner approves a spender to manage a token.
-- `ApprovalForAll`: Emitted when a spender enables or disables an operator to manage all of its assets.
-- `URI`: Emitted when the URI of a mainId is changed.
+To deploy the contracts, use the following command:
 
-Key functions include:
+```sh
+npx hardhat run scripts/deploy.js --network your_network
+```
 
-- `setApprovalForAll`: Approve or remove an operator for the caller.
-- `safeTransferFrom`: Moves tokens using the allowance mechanism.
-- `approve`: Sets the allowance of a spender over the caller's tokens.
-- `subBalanceOf`: Returns the amount of tokens owned by an account.
-- `balanceOfBatch`: Returns the balances of multiple accounts.
-- `allowance`: Returns the remaining number of tokens that a spender can spend on behalf of an owner.
-- `isApprovedForAll`: Checks if an operator is allowed to manage all of the assets of an owner.
+Replace NETWORK valide network of your choice (ex: sepolia or base-sepolia)
 
-## Key Functions 📚
+### Deployment Address on sepolia
 
-The DLT interface provides a set of functions to interact with and manage the tokens. Here's a brief overview:
-
-- `setApprovalForAll(operator, approved)`: Allows the approval or removal of `operator` as an operator for the caller. Operators can call `transferFrom` or `safeTransferFrom` for any token owned by the caller.
-- `safeTransferFrom(sender, recipient, mainId, subId, amount, data)`: Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance.
-- `approve(spender, mainId, subId, amount)`: Sets `amount` as the allowance of `spender` over the caller's tokens.
-- `subBalanceOf(account, mainId, subId)`: Returns the amount of tokens owned by `account
-- `balanceOfBatch(accounts, mainIds, subIds)`: Returns the balances of multiple `accounts` for each pair of `mainIds` and `subIds`.
-- `allowance(owner, spender, mainId, subId)`: Returns the remaining number of tokens that `spender` can spend on behalf of `owner` for a specific `mainId` and `subId`.
-- `isApprovedForAll(owner, operator)`: Checks if `operator` is allowed to manage all of the assets of `owner`.
-
-## DLT Examples 🌟
-
-1. Real Estate Platform with Fractional Ownership:
-
-   DLT can represent unique houses (mainId) and fractional ownership (subId) efficiently within the same contract, allowing for a more versatile real estate platform.
-
-2. Invoice Factoring for SMEs:
-
-   DLT can represent unique invoices (mainId) and individual invoice components or fractional ownership (subId) efficiently within the same contract, allowing for a more versatile invoice factoring platform for SMEs.
-
-## SubId Types 📏
-
-DLT can manage different types of digital assets (mainIds) and their attributes or variations (subIds) with associated quantities in various applications. SubIds can be used in two ways:
-
-1. Shared SubIds:
-
-   All mainIds share the same set of subIds.
-
-   Example: Smartphone Models and Storage Capacities
-
-   MainIds (Models):
-
-   - iPhone
-   - Samsung
-   - Google Pixel
-
-   SubIds (Storage Capacities):
-
-   - A: 64GB
-   - B: 128GB
-   - C: 256GB
-
-   Here, all smartphone models (mainIds) have the same storage capacities (subIds A, B, C).
-
-2. Mixed SubIds:
-
-   MainIds have unique sets of subIds.
-
-   Example: Courses and Instructors with Class Quotas
-
-   MainIds (Courses):
-
-   - Math
-   - Science
-   - History
-
-   SubIds (Instructors and Class Quotas):
-
-   - A: Alice (20 students)
-   - B: Bob (15 students)
-   - C: Carol (30 students)
-   - D: Dave (25 students)
-
-   Here, each course (mainId) has a different set of instructors (subIds) with specific class quotas.
-
-## Conclusion 🔚
-
-DLT is a versatile and efficient token standard that simplifies asset management, optimizes gas costs, and promotes scalability, interoperability, and innovation across various industries and use cases.
-
-By implementing the DLT standard in your projects, you can unlock the potential of blockchain technology for managing diverse assets and their unique attributes or variations. 🚀
+- **MappingToArrays** : [0x05E5483C8C8b6FB41DEa3b303a295a643C67E704](https://sepolia.etherscan.io/address/0x05E5483C8C8b6FB41DEa3b303a295a643C67E704)
+- **MetaDataDescriptor** : [0x4f0a83483FB72A0D10A604A7a3422b83486a3A13](https://sepolia.etherscan.io/address/0x4f0a83483FB72A0D10A604A7a3422b83486a3A13)
+- **MovieFundDistributor** : [0xC3AbF738E4C36F68bd892E89b52e09c82C290FD4](https://sepolia.etherscan.io/address/0xC3AbF738E4C36F68bd892E89b52e09c82C290FD4)

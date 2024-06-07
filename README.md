@@ -1,5 +1,18 @@
 # DLT (Dual Layer Token) Standard 🛠️
 
+Welcome to the Dual-Layer-Token (DLT) Standard, proposed under EIP-6960! 🎉
+
+DLT is a versatile and efficient token standard for managing diverse digital assets in a clear and organized manner. 📚💼🏦
+
+## Table of Contents 📑
+
+- [About DLT](#about-dlt)
+- [DLT vs. Existing Standards](#dlt-vs-existing-standards)
+- [Interface Overview](#interface-overview)
+- [Key Functions](#key-functions)
+- [DLT Examples](#dlt-examples)
+- [Conclusion](#conclusion)
+
 ## About DLT 🚀
 
 DLT, or Dual Layer Token, is a unique token standard that combines the best features of existing standards while adding a novel layered structure, making it ideal for managing diverse asset types and their attributes.
@@ -32,7 +45,7 @@ Key events include:
 - `Transfer`: Emitted when a token is transferred.
 - `TransferBatch`: Emitted for batch transfers.
 - `Approval`: Emitted when an owner approves a spender to manage a token.
-- `DLTApprovalForAll`: Emitted when a spender enables or disables an operator to manage all of its assets.
+- `ApprovalForAll`: Emitted when a spender enables or disables an operator to manage all of its assets.
 - `URI`: Emitted when the URI of a mainId is changed.
 
 Key functions include:
@@ -117,75 +130,3 @@ DLT can manage different types of digital assets (mainIds) and their attributes 
 DLT is a versatile and efficient token standard that simplifies asset management, optimizes gas costs, and promotes scalability, interoperability, and innovation across various industries and use cases.
 
 By implementing the DLT standard in your projects, you can unlock the potential of blockchain technology for managing diverse assets and their unique attributes or variations. 🚀
-
-# Movie Fund Distributor-ERC6960
-
-The Movie Fund Distributor is a Solidity smart contract designed to manage funds and operations within a movie production house using ERC6960-Dual Layer Token.It provides functionalities for adding movies, departments, and employees, as well as distributing funds and paying employee salaries. The ERC6960 Dual Layer Token combines the functionalities of ERC-20, ERC-721, and ERC-1155, adding a classification layer that uses mainId as the main asset type identifier and subId as the unique attributes or variations of the main asset.
-
-## Key Features
-
-- **Adding Movies**: Producers can add new movies to the production house, specifying the movie name and associated image.
-- **Adding Departments**: Producers can add departments to each movie, defining the department name and image.
-- **Adding Employees**: Department managers can add employees to their departments, specifying the employee's address and salary.
-- **Distributing Funds**: Producers can distribute funds to movies and departments within the production house.
-- **Paying Salaries**: Department managers can pay salaries to employees in their departments using allocated funds.
-
-## Usage
-
-1. **Deploy the Contract**: Deploy the MovieFundDistributor contract on the Ethereum blockchain.
-2. **Add Movies**: Producers can add movies to the production house using the addMovie function, providing the movie name and image.
-3. **Add Departments**: For each movie, producers can add departments using the addDepartment function, specifying the department name and image.
-4. **Add Employees**: Department managers can add employees to their departments using the addEmployee function, providing the employee's address and salary.
-5. **Distribute Funds**: Producers can distribute funds to movies and departments using the appropriate functions.
-6. **Pay Salaries**: Department managers can pay employee salaries using allocated funds by calling the addEmployeesalary function.
-
-## Installation
-
-To install and use the SwifyDex staker contract in your project, follow these steps:
-
-1. Clone the repository:
-
-   ```sh
-   git clone https://github.com/Prodigal-Blockchain/EIP_6960.git
-   cd EIP_6960
-   ```
-
-2. Install the dependencies:
-
-   ```sh
-   npm install
-   ```
-
-3. Compile the contracts using Hardhat:
-   ```sh
-   npx hardhat compile
-   ```
-
-## Environment Setup
-
-1. Create a `.env` file in the root directory and update it with your environment variables. For example:
-
-   ```ini
-   RPC_URL=<Replace with valide alchemy/infura url>
-   PRIVATE_KEY=<Replace with your wallet private key>
-   ETHERSCAN_API=<Replace with valid etherscan api key>
-   ```
-
-## Deployment
-
-To deploy the contracts, use the following command:
-Replace
-
-1. Deploy Unsupported protocol contract
-
-```bash
-   npx hardhat run scripts/deployMappingToArrays.js --network NETWORK
-```
-
-2. To deploy Universal router contract, replace mappingToArrayAddress address, use following command:
-
-```bash
-   npx hardhat run scripts/deployMoviedistributor.js --network NETWORK
-```
-
-Replace `NETWORK` with the network you have configured in your Hardhat configuration file (e.g., `sepolia`).

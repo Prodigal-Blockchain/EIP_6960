@@ -3,7 +3,7 @@ require("hardhat-contract-sizer");
 require("@openzeppelin/hardhat-upgrades");
 require("dotenv").config();
 
-const { PRIVATE_KEY, RPC_URL } = process.env;
+const { PRIVATE_KEY, ARCHIVAL_RPC } = process.env;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -24,8 +24,8 @@ module.exports = {
     only: [":DLT$"],
   },
   networks: {
-    sepolia: {
-      url: `${RPC_URL}`,
+    mumbai: {
+      url: `${ARCHIVAL_RPC}`,
       accounts: [
         `${
           PRIVATE_KEY ||
@@ -39,6 +39,6 @@ module.exports = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API,
+    apiKey: process.env.POLYGONSCAN_API_KEY,
   },
 };

@@ -56,10 +56,10 @@ To install and use the SwifyDex core contracts in your project, follow these ste
 To deploy the contracts, use the following command:
 
 ```sh
-npx hardhat run scripts/deploy.js --network your_network
+npx hardhat run scripts/deploy.js --network NETWORK
 ```
 
-Replace NETWORK valide network of your choice (ex: sepolia or base-sepolia)
+Replace NETWORK with valid network of your choice (ex: sepolia or base-sepolia)
 
 ### Deployment Address on sepolia
 

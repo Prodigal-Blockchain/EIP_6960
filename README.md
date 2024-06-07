@@ -46,6 +46,7 @@ To install and use the SwifyDex core contracts in your project, follow these ste
 1. Create a `.env` file in the root directory and update it with your environment variables. For example:
 
    ```ini
+   RPC_URL=<Alchemy or Infura url>
    ETHERSCAN_API=your_infura_api_key
    PRIVATE_KEY=your_private_key
    ```

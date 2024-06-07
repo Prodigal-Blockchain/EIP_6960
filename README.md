@@ -21,7 +21,7 @@ The Movie Fund Distributor is a Solidity smart contract designed to manage funds
 
 ## Installation
 
-To install and use the SwifyDex core contracts in your project, follow these steps:
+To install and use the contracts in your project, follow these steps:
 
 1. Clone the repository:
 
